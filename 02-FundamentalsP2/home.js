@@ -380,7 +380,7 @@ TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.9
 GOOD LUCK 😀
 */
 
-const Mark = {
+const mark = {
   fullName: 'Mark Spector',
   mass: 60,
   height: 1.67,
@@ -390,7 +390,7 @@ const Mark = {
   }
 };
 
-const John = {
+const john = {
   fullName: 'John Smith',
   mass: 74,
   height: 1.8,
@@ -400,5 +400,11 @@ const John = {
   }
 };
 
-Mark.calcBMI() > John.calcBMI()? console.log(`${Mark.fullName}'s BMI ($[Mark.bmi]) is higher than ${John.fullName}'s BMI ($[John.bmi]) ! `) : console.log(`${John.fullName}'s BMI ($[John.bmi]) is higher than ${Mark.fullName}'s BMI ($[Mark.bmi]) ! `);
+// Mark.calcBMI() > John.calcBMI()? console.log(`${Mark.fullName}'s BMI ($[Mark.bmi]) is higher than ${John.fullName}'s BMI ($[John.bmi]) ! `) : console.log(`${John.fullName}'s BMI ($[John.bmi]) is higher than ${Mark.fullName}'s BMI ($[Mark.bmi]) ! `);
+// console.log(Mark.bmi,John.bmi);
+
+mark.calcBMI();
+john.calcBMI();
 console.log(Mark.bmi,John.bmi);
+if(mark.bmi > john.bmi) console.log(`${Mark.fullName}'s BMI ($[Mark.bmi]) is higher than ${John.fullName}'s BMI ($[John.bmi]) ! `);
+else if(john.bmi > mark.bmi) console.log(`${John.fullName}'s BMI ($[John.bmi]) is higher than ${Mark.fullName}'s BMI ($[Mark.bmi]) ! `);
