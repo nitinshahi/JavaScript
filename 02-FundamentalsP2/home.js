@@ -400,11 +400,11 @@ const john = {
   }
 };
 
-// Mark.calcBMI() > John.calcBMI()? console.log(`${Mark.fullName}'s BMI ($[Mark.bmi]) is higher than ${John.fullName}'s BMI ($[John.bmi]) ! `) : console.log(`${John.fullName}'s BMI ($[John.bmi]) is higher than ${Mark.fullName}'s BMI ($[Mark.bmi]) ! `);
-// console.log(Mark.bmi,John.bmi);
+mark.calcBMI() > john.calcBMI()? console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s BMI (${john.bmi}) ! `) : console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi}) ! `);
+console.log(mark.bmi,john.bmi);
 
 mark.calcBMI();
 john.calcBMI();
-console.log(Mark.bmi,John.bmi);
-if(mark.bmi > john.bmi) console.log(`${Mark.fullName}'s BMI ($[Mark.bmi]) is higher than ${John.fullName}'s BMI ($[John.bmi]) ! `);
-else if(john.bmi > mark.bmi) console.log(`${John.fullName}'s BMI ($[John.bmi]) is higher than ${Mark.fullName}'s BMI ($[Mark.bmi]) ! `);
+if(mark.bmi > john.bmi) console.log(`${mark.fullName}'s BMI ($[mark.bmi]) is higher than ${John.fullName}'s BMI ($[John.bmi]) ! `);
+else if(john.bmi > mark.bmi) console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi}) ! `);
+console.log(mark.bmi,john.bmi);
