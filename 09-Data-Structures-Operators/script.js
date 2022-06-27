@@ -40,6 +40,16 @@ const restaurant = {
       `Order received for ${this.starterMenu[s]} and main course ${this.mainMenu[m]} , delivery time ${t} at ${add}`
     );
   },
+  orderMomo: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious momo of ${ing1}, ${ing2} and ${ing3}`);
+  },
+  orderpizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+    console.log(
+      `yout pizza with ${mainIngredient} and ${otherIngredients} is ready`
+    );
+  },
 };
 
 //function call with obj as arguments
@@ -88,6 +98,7 @@ const [a = 1, b = 1, c = 1, d = 1] = arr1;
 console.log(a, b, c, d);
 */
 
+/*
 /////////////////////////
 //Destructing Objects
 
@@ -122,3 +133,79 @@ const {
   fri: { open: o, close: c },
 } = restaurant.openingHours;
 console.log(o, c);
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr);
+console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+
+//Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+// mainMenuCopy[0] = 'hello';
+// console.log(mainMenuCopy);
+// console.log(restaurant.mainMenu);
+
+//join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+const ingredients = [
+  // prompt("Let's make delicious momo! ingredient 1 : ?"),
+  // prompt(`ingredient 2: ?`),
+  // prompt(`Ingrediet 3: ?`),
+];
+
+restaurant.orderMomo(...ingredients);
+
+const newRestaurant = { foundIn: 1998, ...restaurant, founder: `hero` };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = `Ram MOMO`;
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
+*/
+
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+//REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizz, , riss, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizz, riss, otherFood);
+
+//objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+//  2) functions
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+
+add(1, 2, 3);
+add(1, 2, 3, 4, 5);
+// add(1, 2, 3, 4, 5, 6, 7, 8);
+
+const x = [1, 2, 3];
+add(...x);
+
+restaurant.orderpizza('sausage', 'pepporoni', 'cheese', `spinach`, `garlic`);
