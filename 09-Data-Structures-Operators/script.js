@@ -176,6 +176,7 @@ console.log(restaurant.name);
 console.log(restaurantCopy.name);
 */
 
+/*
 // SPREAD, because on RIGHT side of =
 const arr = [1, 2, ...[3, 4]];
 
@@ -209,3 +210,117 @@ const x = [1, 2, 3];
 add(...x);
 
 restaurant.orderpizza('sausage', 'pepporoni', 'cheese', `spinach`, `garlic`);
+
+// USE any data type, return any data type, short- circuting
+console.log(`----------OR----------`);
+console.log(3 || 'nitin');
+console.log(`` || 'nitin');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || null || 'nitin' || 100);
+
+restaurant.numGuest = 0;
+const guest1 = restaurant.numGuest ? restaurant.numGuest : `ternary`;
+console.log(guest1);
+const guest2 = restaurant.numGuest || 10;
+console.log(guest2);
+
+//nullish coalascing operator
+const guest3 = restaurant.numGuest ?? 10;
+console.log(guest3);
+
+console.log(`----------AND----------`);
+console.log(3 && true);
+console.log(undefined && null);
+console.log(2 && false);
+console.log(null && true);
+
+restaurant.orderpizza && restaurant.orderpizza(`mushroom`, `spinach`, `cheese`);
+*/
+
+/* 
+We're building a football betting app (soccer for my American friends 😅)!
+
+Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
+
+1. Create one player array for each team (variables 'players1' and 'players2')
+2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+3. Create an array 'allPlayers' containing all players of both teams (22 players)
+4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
+6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
+
+TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
+
+GOOD LUCK 😀
+*/
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1.
+// const player1 = game.players[0];
+// const player2 = game.players[1];
+const [player1, player2] = game.players;
+
+//2.
+const [gk, ...fieldPlayers] = player1;
+console.log(gk, fieldPlayers);
+
+//3.
+const allPlayers = [...player1, ...player2];
+console.log(allPlayers);
+
+//4.
+const players1Final = [...player1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+//5.
+const { team1, draw, team2 } = game.odds;
+
+//6.
+const printGoals = function (playername) {
+  console.log(playername);
+};
+printGoals(...allPlayers);
+
