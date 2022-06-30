@@ -5,30 +5,36 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
+
+const weekdays = [`sun`, `mon`, `tue`, `wed`, `thu`, `fri`, `sat`];
+
+const openingHours = {
+  sun: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, //open 24 hours
+    close: 23,
+  },
+};
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  // openingHours : openingHours,
+  openingHours,
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, //open 24 hours
-      close: 23,
-    },
-  },
-  order: function (startIndex, mainIndex) {
+  order(startIndex, mainIndex) {
     return [this.starterMenu[startIndex], this.mainMenu[mainIndex]];
   },
+
   orderDelivery: function ({
     //destructing arrays
     startIndex: s = 1, //default values
@@ -316,13 +322,23 @@ const players1Final = [...player1, 'Thiago', 'Coutinho', 'Perisic'];
 console.log(players1Final);
 
 //5.
-const { team1, draw, team2 } = game.odds;
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1);
+console.log(draw);
+console.log(team2);
 
 //6.
-const printGoals = function (playername) {
-  console.log(playername);
+const printGoals = function (...playerGoals) {
+  // playerGoals.unshift('nitin');
+  console.log(playerGoals);
+  console.log(`${playerGoals.length} number of goals scored.`);
 };
-printGoals(...allPlayers);
+printGoals(...game.scored);
+// console.log(game);
+
+//7.
+team1 > team2 && console.log('team 2 is most likely to win');
+team2 > team1 && console.log('team 1 is most likely to win');
 
 /*
 // 1.
@@ -360,3 +376,31 @@ printGoals(...game.scored);
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
 */
+
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+for (const item of menu) console.log(item);
+for (const item of menu.entries()) console.log(`${item[0] + 1} : ${item[1]}`);
+for (const [i, el] of menu.entries()) console.log(`${i + 1} : ${el}`);
+
+//OPTIONAL CHAINGING
+// console.log(restaurant.openingHours.mon.open);
+console.log(restaurant.openingHours.mon?.open);
+const days = [`sun`, `mon`, `tue`, `wed`, `thu`, `fri`, `sat`];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? `closed!!`;
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//Methods
+console.log(restaurant.order?.(0, 1) ?? `Mehod order doesnot exist`);
+console.log(restaurant.nitin?.(2, 2) ?? `Mehod nitin() doesnot exist!!!!`);
+
+//arrays
+const users = [
+  { name: `nitin`, email: `email.com` },
+  { name: 'sakar', email: `sakar.com` },
+];
+
+console.log(users[0]?.name ?? `index user is empty`);
