@@ -691,3 +691,51 @@ const checkBaggage = function (items) {
 checkBaggage('i have a pen , Pencil and a toothbrush');
 checkBaggage('i have a gun , Pencil and a toothbrush');
 checkBaggage('i have a knife , Pencil and a toothbrush');
+
+console.log(`a+very+nice+string`.split('+'));
+console.log(`Nitin Shahi`.split(' '));
+
+const [firstName, lastName] = 'Nitin Shahi'.split(' ');
+const newName = [`Mr`, firstName, lastName].join(` `);
+console.log(newName);
+
+//function to capatilize the first letter of names array
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  console.log(names);
+  const nameReturn = [];
+
+  for (const n of names) {
+    // nameReturn.push(n[0].toUpperCase() + n.slice(1));
+    nameReturn.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(nameReturn.join(' '));
+};
+
+capitalizeName('nitin jonny afro micheal');
+
+//padding
+console.log('nitin'.padStart(10, '+'));
+console.log('god'.padStart(10, '+'));
+const maskCreditCard = function (n) {
+  const number = n + '';
+  const lastNumber = number.slice(-4);
+  return lastNumber.padStart(number.length, '*');
+};
+
+console.log(maskCreditCard(123412342));
+console.log(maskCreditCard(12341));
+console.log(maskCreditCard('123412222334'));
+
+//Repeat
+const message2 = 'Bad weather..... All Departures Delayed......... ';
+console.log(message2.repeat(10));
+
+const planeInLine = function(n){
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`)
+};
+
+planeInLine(4);
+planeInLine(2);
+planeInLine(7);
