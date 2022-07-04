@@ -595,7 +595,99 @@ console.log(
 
 //4.
 for (const [key, value] of gameEvents) {
-  key <= 45
+  key <= 4
     ? console.log(`[First Half] ${key} : ${value}`)
     : console.log(`[Second Half] ${key} : ${value}`);
 }
+
+////////////////////////////
+//working with strings...
+
+const airline = `TAP Nepal Airs`;
+const plane = `A420`;
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B727'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.indexOf('a'));
+console.log(airline.lastIndexOf('a'));
+console.log(airline.indexOf('airs'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 9));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(0, -4));
+
+const checkMiddleSeat = function (seat) {
+  //middle seat if B and E in seat
+
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle Seat😆');
+  else console.log('You have the side Seats😎');
+};
+
+checkMiddleSeat(`12B`);
+checkMiddleSeat(`22A`);
+checkMiddleSeat(`12C`);
+checkMiddleSeat(`12E`);
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//fixing capitalization in names.
+const passenger = 'RaM MOMO';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+//comapring emails
+const email = `nitin@email.com`;
+const loginEmail = `   NiTIn@EMAIl.coM \n`;
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+//replacing
+const priceGB = '123,22$';
+const priceNP = priceGB.replace('$', 'Rs').replace(',', '.');
+console.log(priceGB, priceNP);
+
+const announcement = `All passengers come to boarding door 23, Boarding door 23!!!`;
+
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
+console.log(announcement.replace(/door/g, 'gate'));
+
+//Booleans
+const plane1 = 'Airbus A320neo';
+console.log(plane1.includes('A320'));
+console.log(plane1.includes('Boeing'));
+console.log(plane1.startsWith('Air'));
+console.log(plane1.endsWith('neo'));
+
+//practice Excersice
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes(`knife`) || baggage.includes(`gun`))
+    console.log(`You are not allowed`);
+  else console.log('Welcome aboard!!!');
+};
+
+checkBaggage('i have a pen , Pencil and a toothbrush');
+checkBaggage('i have a gun , Pencil and a toothbrush');
+checkBaggage('i have a knife , Pencil and a toothbrush');
