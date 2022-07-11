@@ -806,19 +806,19 @@ button.addEventListener('click', function () {
 
 */
 
-button.addEventListener('click', function () {
-  const text = document.querySelector('.textarea').value;
-  const rows = text.split('\n');
-  console.log(rows);
-  for (const [i, row] of rows.entries()) {
-    const [first, second] = row.toLowerCase().trim().split('_');
-    const output =
-      `${first + second.replace(second[0], second[0].toUpperCase())}`.padEnd(
-        20
-      ) + `${'🎁'.repeat(i + 1)}`;
-    console.log(output);
-  }
-});
+// button.addEventListener('click', function () {
+//   const text = document.querySelector('.textarea').value;
+//   const rows = text.split('\n');
+//   console.log(rows);
+//   for (const [i, row] of rows.entries()) {
+//     const [first, second] = row.toLowerCase().trim().split('_');
+//     const output =
+//       `${first + second.replace(second[0], second[0].toUpperCase())}`.padEnd(
+//         20
+//       ) + `${'🎁'.repeat(i + 1)}`;
+//     console.log(output);
+//   }
+// });
 
 // underscore_case
 //  first_name
@@ -838,15 +838,19 @@ const flights =
 //   console.log(key, i);
 // }
 
-const stringIn = prompt('Enter a string: ');
-let count = 0;
-for (const i of stringIn) {
-  count++;
-}
-console.log(count);
+// const stringIn = prompt('Enter a string: ');
+// let count = 0;
+// for (const i of stringIn) {
+//   count++;
+// }
+// console.log(count);
 
-let a = 1;
-let b = 2;
-[b, a] = [a, b];
+// let a = 1;
+// let b = 2;
+// [b, a] = [a, b];
 
-console.log(a, b);
+// console.log(a, b);
+
+// for (let i = 100; i < 201; i++) {
+//   if (i % 5 == 0) console.log(`the number ${i} is divisible by 5 `);
+// }
