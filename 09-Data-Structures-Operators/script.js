@@ -826,9 +826,6 @@ button.addEventListener('click', function () {
 //   calculate_AGE
 // delayed_departure
 
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 // const arrN = ['nitin', 'god', 'kunal', 'chad', 'nitin'];
 // const setN = new Set(arrN);
 
@@ -854,3 +851,6 @@ const flights =
 // for (let i = 100; i < 201; i++) {
 //   if (i % 5 == 0) console.log(`the number ${i} is divisible by 5 `);
 // }
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
